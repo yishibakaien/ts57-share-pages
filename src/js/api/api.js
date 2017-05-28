@@ -56,7 +56,10 @@ const API = {
         getProduct: '/product/getProduct/',
 
         // 获取供应详情
-        getCompanySupply: '/companySupply/getCompanySupply/'
+        getCompanySupply: '/companySupply/getCompanySupply/',
+
+        // 获取求购详情
+        getProductBuy: '/productBuy/getProductBuy/'
     },
     search: {
         // 文本搜索
@@ -162,6 +165,13 @@ export function getProduct(data, cb, err) {
 export function getCompanySupply(data, cb, err) {
     let _data = data;
     let url = API.detail.getCompanySupply.toString() + _data.id.toString();
+    return _fetch(METHODS.get, {}, url, cb, err);
+}
+
+// 获取求购详情
+export function getProductBuy(data, cb, err) {
+    let _data = data;
+    let url = API.detail.getProductBuy.toString() + _data.id.toString();
     return _fetch(METHODS.get, {}, url, cb, err);
 }
 

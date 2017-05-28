@@ -9,6 +9,7 @@ import Swiper from 'swiper';
 // 升级版 iScroll
 // import BScroll from 'better-scroll';
 import {
+    makeConfirm,
     c,
     addActive,
     formateMoney,
@@ -97,9 +98,11 @@ const activeIndex = getQueryString('activeIndex');
     // 电话联系按钮
     var contcat = c('#contcat');
 
-    searchBtn.onclick = function() {
-        location.href = './search.html?companyId=' + companyId;
-    };
+    // 分享页面专属
+    var star = c('#star');
+    // 分享页面专属
+    makeConfirm([star, searchBtn, contcat]);
+
     // 获取简单店铺信息
     // getCompanySimpleInfo({
     //     id: companyId
@@ -134,7 +137,7 @@ const activeIndex = getQueryString('activeIndex');
         }
            
         // 联系电话
-        contcat.setAttribute('tel', res.data.phone);
+        // contcat.setAttribute('tel', res.data.phone);
         console.log(res.data.phone);
     });
 
@@ -487,22 +490,22 @@ const activeIndex = getQueryString('activeIndex');
     function footerClick(eles) {
         var i,
             url,
-            tel,
+            // tel,
             len = eles.length;
         for (i = 0; i < len; i++) {
             (function(i) {
                 eles[i].addEventListener('click', function() {
                     url = this.getAttribute('link');
-                    tel = this.getAttribute('tel');
+                    // tel = this.getAttribute('tel');
                     if (url) {
                         console.log(url);
                         location.href = url + '?companyId=' + companyId;
                         return;
                     }
-                    if (tel) {
-                        console.log(tel);
-                        location.href = 'tel:' + tel;
-                    }
+                    // if (tel) {
+                    //     console.log(tel);
+                    //     location.href = 'tel:' + tel;
+                    // }
                 }, false);
             })(i);
         }

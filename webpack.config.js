@@ -139,7 +139,7 @@ let config = {
     devServer: {
         // contentBase: './',
         host: '127.0.0.1',
-        port: 3001, // 端口
+        port: 3002, // 端口
         inline: true,
         hot: false,
         proxy: {

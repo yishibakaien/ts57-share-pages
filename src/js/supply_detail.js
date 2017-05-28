@@ -8,6 +8,7 @@ import '../stylus/static/plugin/swiper-3.4.2.min.css';
 import Swiper from 'swiper';
 
 import {
+    makeConfirm,
     c,
     getQueryString,
     formateSupplyType,
@@ -42,8 +43,7 @@ var id = getQueryString('dataId');
     var companyAvatar = c('#companyAvatar');
     // 公司名字
     var companyName = c('#companyName');
-    // 底部电话按钮
-    var phone = c('#phone');
+    
     //var activeNumber = document.getElementsByClassName('active-number')[0],
     var dress = document.getElementsByClassName('dress')[0];
     // message = document.getElementsByClassName('message')[0],
@@ -52,6 +52,13 @@ var id = getQueryString('dataId');
     // var pics = document.querySelectorAll('#topSwiper .swiper-slide');
     // var swiperClose = document.querySelector('#pictureMask .close');
     
+
+    // 分享出来的页面专属
+    var star = c('#star');
+    var phone = c('#phone');
+
+    makeConfirm([star, phone]);
+
     // 获取产品信息
     getCompanySupply({
         id
@@ -145,11 +152,11 @@ var id = getQueryString('dataId');
         // location.href = '../introduce.html?companyId=' + id;
         location.href = './index.html?activeIndex=1&companyId=' + id;
     }, false);
-    phone.addEventListener('click', function() {
-        var phoneNumber = this.getAttribute('tel');
-        console.log(phoneNumber);
-        location.href = 'tel:' + phoneNumber;
-    }, false);
+    // phone.addEventListener('click', function() {
+    //     var phoneNumber = this.getAttribute('tel');
+    //     console.log(phoneNumber);
+    //     location.href = 'tel:' + phoneNumber;
+    // }, false);
     
     // function hideMask(mask) {
     //     mask.style.display = 'none';

@@ -14,6 +14,7 @@ import {
     getProduct
 } from './api/api';
 import {
+    makeConfirm,
     c,
     formateMoney,
     getQueryString,
@@ -28,6 +29,10 @@ var companyId = getQueryString('companyId');
 var picContainer = c('#picContainer');
 var productNo = c('#productNo');
 var price = c('#price');
+
+// 收藏按钮
+var star = c('#star');
+
 // 公司信息
 var companyMessage = c('#companyMessage');
 var avatar = c('#avatar');
@@ -48,6 +53,12 @@ var height = c('#height');
 var dress = c('#dress');
 // 弹起的轮播图
 var detailPic = c('#detailPic');
+// 拨打电话按钮
+var tel = c('#tel');
+
+// 分享页面独有方法
+makeConfirm([star, tel]);
+
 (function() {
 
     // 获取详细工厂信息介绍

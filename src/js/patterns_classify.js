@@ -4,6 +4,7 @@ import '../font/iconfont.styl';
 import '../stylus/static/reset/reset';
 
 import {
+    makeConfirm,
     getQueryString
 } from './utils/utils';
 
@@ -29,9 +30,10 @@ console.log(allPatterns);
 allPatterns.onclick = function() {
     location.href = `./patterns_list.html?companyId=${companyId}&all=1`;
 };
-searchBtn.onclick = function() {
-    location.href = './search.html?companyId=' + companyId;
-};
+// searchBtn.onclick = function() {
+//     location.href = './search.html?companyId=' + companyId;
+// };
+makeConfirm([searchBtn]);
 listVisitUserProductCategory({
     companyId,
     pageSize: 100

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>求购详情</title>
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" id="buyPic"></div>
+        </div>
+    </div>
+    <div class="desc-wrapper">
+        <div class="left">
+            <div class="serial-number" id="buyDesc"></div>
+        </div>
+    </div>
+    <div class="wanted-detail border-bottom">
+        <div class="wanted-type">
+            <span class="name">求购类型：</span>
+            <span class="value" id="buyType"></span>
+            <span class="wanted-status" id="isStartUp"></span>
+        </div>
+        <div class="wanted-type">
+            <span class="name">求购数量：</span>
+            <span class="value" id="buyNum"></span>
+        </div>
+        <div class="wanted-type">
+            <span class="name">发布时间：</span>
+            <span class="value" id="createDate"></span>
+            <span class="page-view" id="viewCount"></span>
+        </div>
+    </div>
+    <div class="message border-bottom" id="user">
+        <div class="avatar-wrapper">
+            <img class="avatar" id="avatarPic" src="../src/images/default_avatar.png" width="60" height="60">
+        </div>
+        <div class="name">
+            <span class="name-list" id="userName"></span>
+        </div>
+        <i class="iconfont icon-back"></i>
+    </div>
+    <div class="btn-wrapper">
+        <button class="button button-blue button-block" id="wantedBtn">我要接单</button>
+    </div>
+</body>
+</html>

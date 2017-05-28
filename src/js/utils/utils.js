@@ -163,7 +163,25 @@ function setBackgroundImage(ele, url) {
 function setDataId(ele, id) {
     ele.setAttribute('data-id', id);
 }
+
+function makeConfirm(ele) {
+    for (var i = 0; i < ele.length; i++) {
+        (function(i) {
+            ele[i].addEventListener('click', function() {
+                _TS57confirm();
+            }, false);
+        })(i);
+    }
+}
+
+function _TS57confirm() {
+    var a = window.confirm('此项操作需要在统搜57APP中进行，是否前往下载');
+    if (a) {
+        console.log('确认去下载');
+    }
+}
 export {
+    makeConfirm,
     bind,
     addActive,
     formatDate,

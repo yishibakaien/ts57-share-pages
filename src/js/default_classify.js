@@ -3,6 +3,7 @@ import '../stylus/static/plugin/swiper-3.4.2.min.css';
 
 import Swiper from 'swiper';
 import {
+    makeConfirm,
     addActive,
     getQueryString,
     // 这个是拿来转义 布料分类
@@ -39,9 +40,11 @@ import {
     // 只有一种花型时 的 情况需要获取 花型展示盒子
     var allPatterns = document.getElementsByClassName('allPatterns')[0];
 
-    searchBtn.onclick = function() {
-        location.href = './search.html?companyId=' + companyId;
-    };
+    // searchBtn.onclick = function() {
+    //     location.href = './search.html?companyId=' + companyId;
+    // };
+    // 分享页面专属
+    makeConfirm([searchBtn]);
 
     // 如果只有一种分类则不显示tab条
     if (categorysArr.length === 1) {

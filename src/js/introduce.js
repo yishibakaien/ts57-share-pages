@@ -7,6 +7,7 @@ import '../stylus/introduce';
 
 // import Swiper from 'swiper';
 import {
+    makeConfirm,
     c,
     getQueryString
 } from './utils/utils';
@@ -80,6 +81,9 @@ var companyId = getQueryString('companyId');
     // 公司图片轮播图
     var swiperContent = c('#swiperContent');
 
+    // 分享页面专属
+    makeConfirm([phone]);
+
     getCompanyInfo({
         companyId
     }, function(res) {
@@ -95,11 +99,11 @@ var companyId = getQueryString('companyId');
         faxNumber.innerHTML = data.fax;
         companyProfile.innerHTML = data.companyProfile;
         address.innerHTML = data.address;
-        phone.setAttribute('tel', res.data.phone);
-        phone.addEventListener('click', function() {
-            console.log(res.data.phone);
-            location.href = 'tel:' + res.data.phone;
-        }, false);
+        // phone.setAttribute('tel', res.data.phone);
+        // phone.addEventListener('click', function() {
+        //     console.log(res.data.phone);
+        //     location.href = 'tel:' + res.data.phone;
+        // }, false);
 
         var picArr = [];
         res.data.presence.forEach(function(item) {

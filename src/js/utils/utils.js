@@ -1,3 +1,6 @@
+import {
+    downLoadAppURL
+} from '../../../config/config';
 /**
  * 选择器
  * @param  {[type]} str [description]
@@ -177,9 +180,10 @@ function makeConfirm(ele) {
 function _TS57confirm() {
     var a = window.confirm('此项操作需要在统搜57APP中进行，是否前往下载');
     if (a) {
-        console.log('确认去下载');
+        location.href = downLoadAppURL;
     }
 }
+
 export {
     makeConfirm,
     bind,

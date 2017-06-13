@@ -1,20 +1,19 @@
 'use strict';
 
 // const env = 'dev'; // 开发环境
-const env = 'test_new'; // 测试环境
+const env = 'test'; // 测试环境
 
 const headers = {
     'x-version': '1.0',
     'x-client': '4'
 };
-
+const downLoadAppURL = 'http://a.app.qq.com/o/simple.jsp?pkgname=cn.ts57.app';
 var baseURL = (function(env) {
 
     var baseURL;
     var urls = {
         dev: 'http://localhost:3001',
-        test: 'http://192.168.1.11:8080',
-        // test_new: 'http://192.168.1.11/api',
+        test: 'http://192.168.2.11:8080',
         test_new: 'http://api.tswq.wang',
         prod: ''
     };
@@ -37,5 +36,6 @@ var baseURL = (function(env) {
 
 export {
     headers,
-    baseURL
+    baseURL,
+    downLoadAppURL
 };

@@ -6,6 +6,7 @@ import '../stylus/static/plugin/swiper-3.4.2.min.css';
 import '../stylus/wanted_detail';
 
 import Swiper from 'swiper';
+import wx from 'weixin-js-sdk';
 import {
     getQueryString,
     c,
@@ -72,10 +73,19 @@ import {
         console.log('求购详情', res);
         var data = res.data;
         buyPic.style.backgroundImage = 'url(' + data.buyPicUrl + ')';
+
+        buyPic.onclick = function() {
+            wx.previewImage({
+                urls: [
+                    data.buyPicUrl
+                ]
+            });
+        };
+
         buyDesc.innerHTML = data.buyDesc;
         buyType.innerHTML = formateSupplyType(data.buyType);
         isStartUp.innerHTML = formateStartUp(data.isStartUp);
-        buyNum.innerHTML = data.buyNum + ' ' + formateUnit(data.buyUnit);
+        buyNum.innerHTML = (data.buyNum ? data.buyNum : 0) + ' ' + formateUnit(data.buyUnit);
         createDate.innerHTML = formatDate(data.createDate, 'yyyy-MM-dd');
         viewCount.innerHTML = data.viewCount + ' 次浏览';
         user.setAttribute('company-id', data.userId);

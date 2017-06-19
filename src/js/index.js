@@ -117,11 +117,9 @@ const activeIndex = getQueryString('activeIndex');
         // 头像
         if (res.data.companyHeadIcon) {
             companyHeadIcon.src = res.data.companyHeadIcon;
+        }
+        if (res.data.companyBanner) {
             bgPic.src = res.data.companyBanner;
-        } else {
-            // 当头像加载失败时，文字颜色置为黑色
-            companyName.style.color = '#000';
-            companyBusiness.style.color = '#000';
         }
         // 店铺类型 厂家 or 档口，这里应该只有厂家，但还是做判断较好
         if (res.data.companyType === 1) {
@@ -135,11 +133,10 @@ const activeIndex = getQueryString('activeIndex');
         // 公司主营项目
         
         try {
-            companyBusiness.innerHTML = '主营：' + res.data.companyExtendBO.companyBusiness ? res.data.companyExtendBO.companyBusiness : '';
+            companyBusiness.innerHTML = res.data.companyExtendBO.companyBusiness ? '主营：' + res.data.companyExtendBO.companyBusiness : '';
         } catch (e) {
             console.log(e);
         }
-           
         // 联系电话
         // contcat.setAttribute('tel', res.data.phone);
         console.log(res.data.phone);

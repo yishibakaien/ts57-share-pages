@@ -1,13 +1,13 @@
 'use strict';
 
 // const env = 'dev'; // 开发环境
-const env = 'test'; // 测试环境
-
-const headers = {
+// const env = 'test_new'; // 测试环境
+var env = 'prod';
+var headers = {
     'x-version': '1.0',
     'x-client': '4'
 };
-const downLoadAppURL = 'http://a.app.qq.com/o/simple.jsp?pkgname=cn.ts57.app';
+var downLoadAppURL = 'http://a.app.qq.com/o/simple.jsp?pkgname=cn.ts57.app';
 var baseURL = (function(env) {
 
     var baseURL;
@@ -15,7 +15,7 @@ var baseURL = (function(env) {
         dev: 'http://localhost:3001',
         test: 'http://192.168.2.11:8080',
         test_new: 'http://api.tswq.wang',
-        prod: ''
+        prod: 'https://api.ts57.cn'
     };
     if (env === 'dev') {
         baseURL = urls.dev + '/api'; // 这里的这个 /api 是proxy跨域代理的配置

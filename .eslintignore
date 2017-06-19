@@ -3,3 +3,4 @@ dist/
 src/js/utils/qrcode2.js
 src/js/utils/qrcodealg.js
 src/js/utils/qrcode.js
+src/js/utils/text2base64/*

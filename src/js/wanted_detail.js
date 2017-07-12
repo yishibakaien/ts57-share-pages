@@ -19,7 +19,7 @@ import {
 import {
     // 获取求购详情
     getProductBuy
-
+    // getCompanyInfoByUserId
 } from './api/api';
 
 // id 可以有 973 974 975
@@ -65,9 +65,7 @@ import {
         }
     }
 
-    wantedBtn.onclick = function() {
-        makeConfirm([wantedBtn, ]);
-    };
+    makeConfirm([wantedBtn, user]);
 
     getProductBuy({id}, function(res) {
         console.log('求购详情', res);
@@ -88,12 +86,10 @@ import {
         buyNum.innerHTML = (data.buyNum ? data.buyNum : 0) + ' ' + formateUnit(data.buyUnit);
         createDate.innerHTML = formatDate(data.createDate, 'yyyy-MM-dd');
         viewCount.innerHTML = data.viewCount + ' 次浏览';
-        user.setAttribute('company-id', data.userId);
-        avatarPic.src = data.userHeadIcon;
+        
+        if (data.userHeadIcon) {
+            avatarPic.src = data.userHeadIcon;
+        }
         userName.innerHTML = '求购人: ' + data.userName;
-        user.onclick = function() {
-            var companyId = this.getAttribute('company-id');
-            location.href = './index.html?companyId=' + companyId;
-        };
     });
 })();

@@ -101,7 +101,11 @@ const activeIndex = getQueryString('activeIndex');
     // 分享页面专属
     var star = c('#star');
     // 分享页面专属
-    makeConfirm([star, searchBtn, contcat]);
+    makeConfirm([star, contcat]);
+    // 搜索按钮点击跳转
+    searchBtn.onclick = function() {
+        location.href = './search.html?companyId=' + companyId;
+    };
 
     // 获取简单店铺信息
     // getCompanySimpleInfo({
@@ -115,8 +119,20 @@ const activeIndex = getQueryString('activeIndex');
     }, function(res) {
         console.log('获取详细店铺信息', res);
         // 头像
-        if (res.data.companyHeadIcon) {
+        // if (res.data.companyHeadIcon) {
+        //     companyHeadIcon.src = res.data.companyHeadIcon;
+        // }
+        // if (res.data.companyBanner) {
+        //     bgPic.src = res.data.companyBanner;
+        // }
+        
+        // 2017年7月4日14:47:17 修改 默认头像为公司名字第一个字，需要把index.html 中的头像图片 display 设置为 none
+        if (res.data.companyHeadIcon && res.data.companyHeadIcon.indexOf('default') === -1) {
+            companyHeadIcon.style.display = 'block';
             companyHeadIcon.src = res.data.companyHeadIcon;
+        } else {
+            console.log('头像的父级元素', companyHeadIcon.parentNode);
+            companyHeadIcon.parentNode.innerHTML = res.data.companyName.charAt(0);
         }
         if (res.data.companyBanner) {
             bgPic.src = res.data.companyBanner;

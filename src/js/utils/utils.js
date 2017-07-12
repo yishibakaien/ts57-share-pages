@@ -103,7 +103,8 @@ function formateUnit(unit) {
 /*格式化金额*/
 function formateMoney(price, unit) {
     // 金额以 分 作为单位
-    if (!price) {
+    price = Number(price);
+    if (price < 0.1 ) {
         return '价格面议';
     }
     unit = Number(unit);
@@ -115,7 +116,7 @@ function formateMoney(price, unit) {
     } else if (unit === 400012) {
         _unit = '条';
     }
-    return '￥ ' + (price / 100) + ' / ' + _unit;
+    return '￥ ' + (price / 100).toFixed(2) + ' / ' + _unit;
 }
 /*格式化供应类型*/
 function formateSupplyShape(num) {
@@ -168,23 +169,28 @@ function setDataId(ele, id) {
 }
 
 function makeConfirm(ele) {
-    for (var i = 0; i < ele.length; i++) {
-        (function(i) {
-            ele[i].addEventListener('click', function() {
-                _TS57confirm();
-            }, false);
-        })(i);
-    }
+    ele.forEach(function(item) {
+        item.onclick = function() {
+            console.log(1);
+            _TS57confirm();
+        };
+    });
 }
 
 function _TS57confirm() {
-    var a = window.confirm('此项操作需要在统搜57APP中进行，是否前往下载');
+    console.log(2);
+    var a = confirm('此项操作需要在统搜57APP中进行，是否前往下载');
     if (a) {
         location.href = downLoadAppURL;
     }
 }
-
+function formatPicUrl(url, needSmall) {
+    var _url = url.split('?')[0];
+        // console.log('转换的base64', companyName);
+    return _url + '?x-oss-process=image/' + (needSmall ? 'resize,w_300,h_300/' : '');
+}
 export {
+    formatPicUrl,
     makeConfirm,
     bind,
     addActive,

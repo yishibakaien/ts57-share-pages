@@ -73,6 +73,9 @@ const API = {
         url: '/search/url',
         // 获取最终的结果
         getResult: '/search/getResult'
+    },
+    wx: {
+        jsOAuth: '/wechat/jsOAuth'
     }
 };
 
@@ -238,4 +241,12 @@ export function getResult(data, cb, err) {
 // 根据userId获取用户信息
 export function getCompanyInfoByUserId(data, cb, err) {
     return _fetch(METHODS.get, data, API.user.getCompanyInfoByUserId, cb, err);
+}
+
+// =======
+// 微信相关
+// =======
+// 微信授权jssdk 签名
+export function jsOAuth(data, cb, err) {
+    return _fetch(METHODS.post, data, API.wx.jsOAuth, cb, err);
 }

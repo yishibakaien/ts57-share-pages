@@ -262,7 +262,7 @@ const activeIndex = getQueryString('activeIndex');
         // 微信分享
         wxShareArg = {
             title: res.data.companyName,
-            imgUrl: res.data.companyHeadIcon,
+            imgUrl: encodeURIComponent(res.data.companyHeadIcon).split('%3A').join(':').split('%2F').join('/'),
             link: location.href,
             desc: '快来我的店铺逛逛吧，这里可以快照搜花和3D试衣哦'
         };

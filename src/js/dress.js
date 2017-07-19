@@ -52,6 +52,9 @@ if (imgUrl) {
         Toast.error('模特加载失败');
     };
 }
+if (companyId) {
+    choose.style.display = 'block';
+}
 
 for (var i = 0; i < modles.length; i++) {
     (function(i) {

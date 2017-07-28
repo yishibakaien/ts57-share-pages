@@ -18,6 +18,11 @@ import AlloyCrop from './utils/crop/crop';
 
 import uploadPictrue from './utils/uploadPictrue';
 
+// 2017年7月28日17:41:59  改版的切图
+import cropper from './utils/crop2/cropper.js';
+// import './utils/crop2/cropper.styl';
+
+
 // console.log(AlloyCrop);
 import {
     // 文本搜索
@@ -78,22 +83,22 @@ var PIC_RESULT = 3;
     searchPicIpt.onchange = function() {
         uploadPictrue(this, function(value) {
             // cropPic.src = value;
-            new AlloyCrop({
-                image_src: value,
-                circle: false, // optional parameters , the default value is false
-                width: 240,
-                height: 240,
-                ok: function(base64, canvas) {
-                    searchPic.src = base64;
-                    showPicBox();
-                    bindSearchPicEvent(base64);
-                    console.log(canvas);
-                },
-                cancel: function() {},
-                // 无损伤hack 判断当ok_text 为数组时，生成多个按钮
-                ok_text: '确定', // optional parameters , the default value is ok
-                cancel_text: '取消' // optional parameters , the default value is cancel
-            });
+            // new AlloyCrop({
+            //     image_src: value,
+            //     circle: false, // optional parameters , the default value is false
+            //     width: 240,
+            //     height: 240,
+            //     ok: function(base64, canvas) {
+            //         searchPic.src = base64;
+            //         showPicBox();
+            //         bindSearchPicEvent(base64);
+            //         console.log(canvas);
+            //     },
+            //     cancel: function() {},
+            //     // 无损伤hack 判断当ok_text 为数组时，生成多个按钮
+            //     ok_text: '确定', // optional parameters , the default value is ok
+            //     cancel_text: '取消' // optional parameters , the default value is cancel
+            // });
         });
     };
 

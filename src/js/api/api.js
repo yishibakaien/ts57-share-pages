@@ -100,7 +100,7 @@ function _fetch(method = METHODS.get, data, url, cb, err) {
 
     let _headers = headers;
     // 模拟用户登录token
-    // _headers['x-token'] = '8f6b68291b344b869552669305378e48';
+    _headers['x-token'] = 'dcf7961fc65844d5a650250f160d8160';
 
     let param = {
         method: method,

@@ -187,7 +187,7 @@ function _TS57confirm() {
 function formatPicUrl(url, needSmall) {
     var _url = url.split('?')[0];
         // console.log('转换的base64', companyName);
-    return _url + '?x-oss-process=image/' + (needSmall ? 'resize,w_300,h_300/' : '');
+    return _url + (needSmall ? '?x-oss-process=image/resize,w_300,h_300/' : '');
 }
 export {
     formatPicUrl,

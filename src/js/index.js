@@ -202,13 +202,19 @@ const activeIndex = getQueryString('activeIndex');
 
     // 分享页面专属
     var star = c('#star');
+
+    // 试衣按钮
+    var dressBtn = c('#dressBtn');
+    
     // 分享页面专属
     makeConfirm([star, contcat]);
     // 搜索按钮点击跳转
     searchBtn.onclick = function() {
         location.href = './search.html?companyId=' + companyId;
     };
-
+    dressBtn.onclick = function() {
+        location.href = './dress.html?companyId=' + companyId;
+    };
     // 获取简单店铺信息
     // getCompanySimpleInfo({
     //     id: companyId

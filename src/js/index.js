@@ -366,7 +366,10 @@ const activeIndex = getQueryString('activeIndex');
         console.log('全部花型分类', res);
         var len;
         var itemList = res.data.list;
-
+        if (itemList.length === 0) {
+            return;
+        }
+        dressBtn.style.display = 'block';
         // 这个是 type 的 wrapper 这样做是为了方便使用appendChild
         function showFlag(num) {
             if (num === 0) {

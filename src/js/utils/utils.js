@@ -189,7 +189,11 @@ function formatPicUrl(url, needSmall) {
         // console.log('转换的base64', companyName);
     return _url + (needSmall ? '?x-oss-process=image/resize,w_300,h_300/' : '');
 }
+function checkAndroid() {
+    return navigator.userAgent.indexOf('Android') > -1;
+}
 export {
+    checkAndroid,
     formatPicUrl,
     makeConfirm,
     bind,

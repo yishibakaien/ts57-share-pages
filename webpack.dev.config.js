@@ -138,10 +138,11 @@ let config = {
     // devtool: '#source-map',
     devServer: {
         // contentBase: './',
-        host: '127.0.0.1',
-        port: 3002, // 端口
+        // host: '127.0.0.1',
+        port: 80, // 端口
         inline: true,
         hot: false,
+        disableHostCheck: true,
         proxy: {
             '/api/*': {
                 target: 'http://192.168.2.11:8080',

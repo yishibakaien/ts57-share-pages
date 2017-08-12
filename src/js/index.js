@@ -206,6 +206,10 @@ const activeIndex = getQueryString('activeIndex');
     // 试衣按钮
     var dressBtn = c('#dressBtn');
     
+    // 2017年8月7日15:59:34 区分厂家和档口
+    var contactText = c('#contactText');
+    var introduceText = c('#introduceText');
+
     // 分享页面专属
     makeConfirm([star, contcat]);
     // 搜索按钮点击跳转
@@ -247,9 +251,16 @@ const activeIndex = getQueryString('activeIndex');
         }
         // 店铺类型 厂家 or 档口，这里应该只有厂家，但还是做判断较好
         if (res.data.companyType === 1) {
+            c('.tab')[0].style.display = 'flex';
             typeTag.className = 'tag factory';
+            contactText.innerHTML = '联系厂家';
+            introduceText.innerHTML = '厂家介绍';
         } else if (res.data.companyType === 2) {
+            c('#wrapper2').style.display = 'none';
+            c('#content').style.top = '72px';
             typeTag.className = 'tag stalls';
+            contactText.innerHTML = '联系商家';
+            introduceText.innerHTML = '商家介绍';
         }
         viewCount.innerHTML = res.data.viewCount;
         // 公司名称
